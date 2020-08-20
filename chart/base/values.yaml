@@ -6,6 +6,9 @@ global: {}
 replicaCount: 1
 logLevel: "debug"
 
+mesh: 
+  enabled: true
+  
 image:
   repository: replace
   tag: replace

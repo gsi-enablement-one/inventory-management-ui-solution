@@ -1,0 +1,11 @@
+{{- if .Values.mesh.enabled -}}
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ include "starter-kit.fullname" . }}-destinationrule
+spec:
+  host: {{ include "starter-kit.fullname" . }}
+  trafficPolicy:
+    tls:
+      mode: DISABLE 
+{{- end}}

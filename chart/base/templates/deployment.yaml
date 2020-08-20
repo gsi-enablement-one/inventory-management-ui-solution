@@ -29,6 +29,10 @@ spec:
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
+      {{- if .Values.mesh.enabled }}
+      annotations:
+        sidecar.istio.io/inject: "true"
+      {{- end}}    
       labels:
         app.kubernetes.io/name: {{ include "starter-kit.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
