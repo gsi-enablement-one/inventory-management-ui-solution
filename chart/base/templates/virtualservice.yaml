@@ -11,7 +11,9 @@ spec:
   http:
   - match:
     - uri:
-        exact: /health
+        exact: /health-{{ .Values.mesh.suffix }}
+    rewrite:
+      uri: /health        
     route:
     - destination:
         host: {{ include "starter-kit.fullname" . }}
@@ -19,7 +21,9 @@ spec:
           number: {{ .Values.service.port }}  
   - match:
     - uri:
-        exact: /ui
+        exact: /{{ .Values.mesh.suffix }}
+    rewrite:
+      uri: /         
     route:
     - destination:
         host: {{ include "starter-kit.fullname" . }}
