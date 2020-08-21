@@ -8,6 +8,7 @@ logLevel: "debug"
 
 mesh: 
   enabled: true
+  suffix: ui
   
 image:
   repository: replace
